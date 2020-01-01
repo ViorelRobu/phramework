@@ -1,0 +1,23 @@
+{
+    "name": "viorel/phramework",
+    "description": "Side project to create a PHP MVC framework",
+    "type": "framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Viorel Robu",
+            "email": "wwjd.vio@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
+}
