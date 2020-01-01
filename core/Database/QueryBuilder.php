@@ -8,14 +8,27 @@ use Phramework\App\Kernel;
 
 class QueryBuilder
 {
+    /**
+     * PDO instance
+     */
     protected $pdo;
+
+    /**
+     * The table name associated with the model
+     */
+    protected $table = null;
 
     /** 
      * Assign the PDO instance from the dependendecy container to the $pdo attibute
+     * and, if $table is null assign the strtolower class name
      */
     protected function __construct()
     {
-        $this->pdo = Kernel::get('connection');;
+        $this->pdo = Kernel::get('connection');
+        if ($this->table == null) {
+            $reflection = new \ReflectionClass($this);
+            $this->table = strtolower($reflection->getShortName() . 's');
+        }
     }
 
     /**

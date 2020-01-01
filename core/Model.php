@@ -3,14 +3,11 @@
 namespace Phramework\Core;
 
 use Phramework\Core\Database\QueryBuilder;
+use ReflectionClass;
 
 class Model extends QueryBuilder
 {
-    /**
-     * The table name corresponding with the model
-     * 
-     * TODO: add the posibility to get the class name, lowercase for the table name
-     */
+    
     protected $table = 'users';
 
     /**
