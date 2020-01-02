@@ -7,13 +7,10 @@ use ReflectionClass;
 
 class Model extends QueryBuilder
 {
-    
-    protected $table = 'users';
-
     /**
      * Get all the data from a table
      * 
-     * @return PDO
+     * @return StdClass intance with table data
      */
     public static function all()
     {
@@ -25,7 +22,7 @@ class Model extends QueryBuilder
      * Get the selected fields from the table
      * 
      * @param array $fields
-     * @return PDO
+     * @return StdClass intance with table data
      */
     public static function fetch(array $fields)
     {

@@ -18,3 +18,19 @@ function dd($value)
     die();
 }
 
+/**
+ * Return the view
+ */
+function view($name, $data=[])
+{
+    extract($data);
+    return require "app/views/{$name}.view.php";
+}
+
+/**
+ * Redirects the user to the set path
+ */
+function redirect($path)
+{
+    return header("Location: " . $path);
+}
