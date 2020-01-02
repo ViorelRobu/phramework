@@ -24,7 +24,7 @@ function dd($value)
 function view($name, $data=[])
 {
     extract($data);
-    return require "app/views/{$name}.view.php";
+    return require __DIR__ . "/../app/Views/{$name}.view.php";
 }
 
 /**

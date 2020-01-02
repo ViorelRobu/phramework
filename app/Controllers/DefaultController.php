@@ -6,8 +6,14 @@ use Phramework\App\Models\User;
 
 class DefaultController
 {
+    /**
+     * Return the index page
+     * 
+     * @param null
+     * @return view()
+     */
     public function index()
     {
-        return dd(User::all());
+        return view('home');
     }
 }
