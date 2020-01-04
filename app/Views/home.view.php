@@ -8,6 +8,6 @@
 <body>
     <h1>This is Phramework</h1>
     <p>A minimalist php framework!</p>
-    <p> __@ $test @__ </p>
+    <p> __@ echo $test @__ </p>
 </body>
 </html>

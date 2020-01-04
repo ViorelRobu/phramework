@@ -27,8 +27,8 @@ function dd($value)
 function view($name, $data=[])
 {
     extract($data);
-    return new Template(Kernel::get('template'), __DIR__ . "/../app/Views/{$name}.view.php");
-    // return require __DIR__ . "/../app/Views/{$name}.view.php";
+    $view = new Template(Kernel::get('template'), __DIR__ . "/../app/Views/{$name}.view.php");
+    eval( "?>" . $view->return);
 }
 
 /**

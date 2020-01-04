@@ -6,6 +6,7 @@ class Template
 {
     protected $tags;
     protected $template;
+    public $return;
 
     public function __construct(array $tags, $path)
     {
@@ -24,7 +25,7 @@ class Template
      */
     public function setUp(array $tags)
     {
-        return $this->tags = $tags;
+        $this->tags = $tags;
     }
 
     /**
@@ -35,7 +36,7 @@ class Template
      */
     protected function loadFile($file)
     {
-        return $this->template = file($file, 2);
+        $this->template = file($file, 2);
     }
 
     /**
@@ -53,6 +54,6 @@ class Template
      */
     public function render()
     {
-        print implode(PHP_EOL, $this->template);
+        $this->return = implode(PHP_EOL, $this->template);
     }
 }

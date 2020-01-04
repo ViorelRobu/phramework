@@ -14,7 +14,7 @@ class DefaultController
      */
     public function index()
     {
-        $test = 'test';
-        return view('home', compact('test'));
+        $test = 'This is a templating test!';
+        return view('home', ['test' => $test]);
     }
 }
