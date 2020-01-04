@@ -14,6 +14,7 @@ class DefaultController
      */
     public function index()
     {
-        return view('home');
+        $test = 'test';
+        return view('home', compact('test'));
     }
 }

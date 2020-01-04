@@ -7,6 +7,9 @@
  *  ======================================================================
  */
 
+use Phramework\App\Kernel;
+use Phramework\Core\Template\Template;
+
 /**
  * Uses var_dump to show all the data and then die
  * 
@@ -24,7 +27,8 @@ function dd($value)
 function view($name, $data=[])
 {
     extract($data);
-    return require __DIR__ . "/../app/Views/{$name}.view.php";
+    return new Template(Kernel::get('template'), __DIR__ . "/../app/Views/{$name}.view.php");
+    // return require __DIR__ . "/../app/Views/{$name}.view.php";
 }
 
 /**
