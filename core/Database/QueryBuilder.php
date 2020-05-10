@@ -22,7 +22,7 @@ class QueryBuilder
      * Assign the PDO instance from the dependendecy container to the $pdo attibute
      * and, if $table is null assign the strtolower class name
      */
-    protected function __construct()
+    public function __construct()
     {
         $this->pdo = Kernel::get('connection');
         if ($this->table == null) {
@@ -47,7 +47,7 @@ class QueryBuilder
      * 
      * @return array of StdClass Object
      */
-    protected function get($table, $fields = '*', $conditions = null)
+    public function get($table, $fields = '*', $conditions = null)
     {
         try {
             $sql = $this->pdo->prepare("SELECT {$fields} FROM {$table} {$conditions}");

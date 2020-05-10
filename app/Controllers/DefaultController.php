@@ -2,7 +2,8 @@
 
 namespace Phramework\App\Controllers;
 
-use Phramework\App\Models\User;
+use Phramework\App\Kernel;
+use Phramework\Core\Database\QueryBuilder;
 
 class DefaultController
 {
@@ -14,7 +15,7 @@ class DefaultController
      */
     public function index()
     {
-        $test = 'This is a templating test!';
-        return view('home', ['test' => $test]);
+        $test = new QueryBuilder();
+        return view('home', ['test' => $test->get('users')]);
     }
 }
