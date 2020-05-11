@@ -3,6 +3,7 @@
 namespace Phramework\App\Controllers;
 
 use Phramework\App\Kernel;
+use Phramework\App\Models\User;
 use Phramework\Core\Database\QueryBuilder;
 
 class DefaultController
@@ -15,7 +16,18 @@ class DefaultController
      */
     public function index()
     {
-        $test = new QueryBuilder();
-        return view('home', ['test' => $test->get('users')]);
+        $test = User::all();
+        return view('home', ['test' => $test]);
+    }
+
+    /**
+     * Persist the data inside the database
+     *
+     */
+    public function store()
+    {
+        $user = new User();
+        $user->insert([$_POST['name'], $_POST['password']]);
+        return redirect('/');
     }
 }

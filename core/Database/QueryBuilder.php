@@ -6,7 +6,7 @@ use PDOException;
 use PDO;
 use Phramework\App\Kernel;
 
-class QueryBuilder
+abstract class QueryBuilder
 {
     /**
      * PDO instance
@@ -33,17 +33,35 @@ class QueryBuilder
 
     /**
      * Insert data into the table
+     *
+     * @param array $values
      */
-    protected function insert($table, $conditions = null, $fields = null)
+    public function insert(array $values)
     {
-        //
+        $fields = $this->getColumns();
+        unset($fields[0]);
+        $placeholders = [];
+        foreach($fields as $field) {
+            $placeholders[] = '?';
+        }
+        $fields = implode(', ', $fields);
+        $placeholders = implode(', ', $placeholders);
+
+        try {
+            $sql = "INSERT INTO " .  $this->table . " (" . $fields . ") VALUES (" . $placeholders . ")";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($values);
+            return $stmt->rowCount();
+        } catch (PDOException $exception) {
+            echo "Error: " . $exception->getMessage();
+        }
     }
     /**
      * Fetch data from the table
      * 
-     * @param $table
-     * @param $conditions
-     * @param $fields
+     * @param string $table
+     * @param null $conditions
+     * @param string $fields
      * 
      * @return array of StdClass Object
      */
@@ -52,22 +70,42 @@ class QueryBuilder
         try {
             $sql = $this->pdo->prepare("SELECT {$fields} FROM {$table} {$conditions}");
             $sql->execute();
-            return $data = $sql->fetchAll(PDO::FETCH_CLASS);
+            return $sql->fetchAll(PDO::FETCH_CLASS);
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
+
+    /**
+     * @return mixed
+     */
+    public function getColumns()
+    {
+        try {
+            $sql = $this->pdo->prepare('DESCRIBE ' . $this->table);
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_COLUMN);
+        } catch (PDPException $exception) {
+            echo "Error: " . $exception->getMessage();
+        }
+    }
+
     /**
      * Update data from the table
+     *
+     * @param array $conditions
+     * @param array $fields
      */
-    protected function update($table, $conditions = null, $fields = null)
+    protected function update($conditions = [], $fields = [])
     {
         //
     }
     /**
      * Delete data from the table
+     *
+     * @param array $conditions
      */
-    protected function delete($table, $conditions = null, $fields = null)
+    protected function delete(array $conditions)
     {
         //
     }

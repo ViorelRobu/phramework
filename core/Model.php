@@ -7,10 +7,12 @@ use ReflectionClass;
 
 class Model extends QueryBuilder
 {
+    protected $table;
+
     /**
      * Get all the data from a table
      * 
-     * @return StdClass intance with table data
+     * @return StdClass instance with table data
      */
     public static function all()
     {

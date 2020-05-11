@@ -10,6 +10,11 @@
 <body>
     <h1>This is Phramework</h1>
     <p>A minimalist php framework!</p>
+    <form action="/store" method="POST">
+        <input type="text" name="name">
+        <input type="password" name="password">
+        <button type="submit">Save</button>
+    </form>
     <p> << dd($test) >> </p>
 </body>
 

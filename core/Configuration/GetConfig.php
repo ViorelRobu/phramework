@@ -6,6 +6,9 @@ class GetConfig
 {
     public $config = '';
 
+    /**
+     * GetConfig constructor.
+     */
     public function __construct()
     {
         $this->readAndParse();
