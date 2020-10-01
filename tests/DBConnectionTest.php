@@ -1,10 +1,7 @@
 <?php
 
-use Phramework\App\Kernel;
 use PHPUnit\Framework\TestCase;
-use Phramework\Core\Configuration\GetConfig;
 use Phramework\Core\Database\DatabaseConnection;
-
 
 class DBConnectionTest extends TestCase 
 {
@@ -20,7 +17,7 @@ class DBConnectionTest extends TestCase
     /** @test */
     public function app_can_connect_to_database()
     {
-        $db = DatabaseConnection::connect('localhost', 'framework', 'root', '');
+        $db = DatabaseConnection::connect('sqlite::memory:');
         $this->assertInstanceOf(PDO::class, $db);
     }
 }

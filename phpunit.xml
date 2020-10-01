@@ -15,7 +15,7 @@
      stopOnSkipped="false"
      verbose="false">
     <testsuites>
-        <testsuite name="Testing Example">
+        <testsuite name="Phramework Test">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

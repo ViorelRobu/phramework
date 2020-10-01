@@ -9,5 +9,10 @@ $template = [
     '>>' => '?>'
 ];
 
-Kernel::bind('connection', DatabaseConnection::connect(DB_HOST, DB_NAME, DB_USER, DB_PASS));
+Kernel::bind('connection', DatabaseConnection::connect('mysql', [
+    'host' => DB_HOST, 
+    'db' => DB_NAME, 
+    'user' => DB_USER, 
+    'password' => DB_PASS]));
+    
 Kernel::bind('template', $template);
