@@ -2,7 +2,7 @@
 
 // set the database connection credentials
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'framework');
-define('DB_USER', 'homestead');
-define('DB_PASS', 'secret');
+const DB_HOST = 'localhost';
+const DB_NAME = 'framework';
+const DB_USER = 'homestead';
+const DB_PASS = 'secret';

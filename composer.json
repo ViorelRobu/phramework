@@ -18,6 +18,10 @@
     "autoload": {
         "classmap": [
             "./"
+        ],
+        "files": [
+            "config\/config.php",
+            "config\/helpers.php"
         ]
     }
 }

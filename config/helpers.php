@@ -38,17 +38,3 @@ function redirect($path)
 {
     return header("Location: " . $path);
 }
-
-/**
- * Read the GetConfig data and return the corresponding value
- */
-function env($const, $default = '')
-{
-    $data = Kernel::get('config');
-    $result = $data->config;
-    if (!array_key_exists($const,$result)) {
-        return $default;
-    } else {
-        return $result[$const];        
-    }
-}

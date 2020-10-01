@@ -9,6 +9,5 @@ $template = [
     '>>' => '?>'
 ];
 
-Kernel::bind('config', new GetConfig());
-Kernel::bind('connection', DatabaseConnection::connect(env('DB_HOST'), env('DB_NAME'), env('DB_USER'), env('DB_PASS')));
+Kernel::bind('connection', DatabaseConnection::connect(DB_HOST, DB_NAME, DB_USER, DB_PASS));
 Kernel::bind('template', $template);
