@@ -10,6 +10,8 @@
 <body>
     <h1>This is Phramework</h1>
     <p>A minimalist php framework!</p>
+    <a href="/add/column">Add new column</a>
+    <a href="/delete/column">Delete column</a>
     <form action="/store" method="POST">
         <input type="text" name="name">
         <input type="password" name="password">

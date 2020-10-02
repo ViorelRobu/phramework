@@ -7,4 +7,6 @@
  * ===========================================================================================================================
  */
 $router->get('/', 'DefaultController@index');
+$router->get('/add/column', 'DefaultController@newColumn');
+$router->get('/delete/column', 'DefaultController@deleteColumn');
 $router->post('/store', 'DefaultController@store');

@@ -1,7 +1,6 @@
 <?php
 
 use Phramework\App\Kernel;
-use Phramework\Core\Configuration\GetConfig;
 use Phramework\Core\Database\DatabaseConnection;
 
 $template = [
